@@ -1,0 +1,45 @@
+{
+    "name": "@hanchon/evmos-signer",
+    "version": "1.0.0",
+    "description": "Evmos signer for secp256k1 and eth_secp256k1 privatekeys",
+    "license": "MIT",
+    "repository": "hanchon-live/evmos-signer",
+    "source": "src/signer.ts",
+    "main": "lib/signer.js",
+    "module": "./lib/signer.module.js",
+    "types": "lib/signer.d.ts",
+    "keywords": [
+        "evmos",
+        "ethermint",
+        "bech32",
+        "eth",
+        "blockchain",
+        "address",
+        "signer",
+        "wallet"
+    ],
+    "files": [
+        "lib/**/*"
+    ],
+    "author": "Hanchon <guillermo.paoletti@gmail.com>",
+    "scripts": {
+        "build": "microbundle",
+        "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.15.0",
+        "@babel/preset-env": "^7.15.0",
+        "@babel/preset-typescript": "^7.15.0",
+        "@types/jest": "^27.0.1",
+        "@types/node": "^16.7.4",
+        "@typescript-eslint/eslint-plugin": "^5.8.0",
+        "@typescript-eslint/parser": "^5.8.0",
+        "babel-jest": "^27.1.0",
+        "eslint-plugin-import": "^2.25.3",
+        "eslint-plugin-prettier": "^4.0.0",
+        "jest": "^27.1.0",
+        "microbundle": "^0.13.3",
+        "prettier": "^2.5.1",
+        "typescript": "^4.4.2"
+    }
+}
