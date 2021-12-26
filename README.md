@@ -9,62 +9,29 @@ A typescript signer for the evmos networks, it supports `secp256k1` and `eth_sec
 ## Installation
 
 ```sh
-npm install @hanchon/ethermint-address-converter
+yarn add @hanchon/evmos-signer
 ```
 
 ## Usage
 
-### Converter
+### Signer
 
 ```ts
 import {
-  ethToEthermint,
-  ethermintToEth,
-} from "@hanchon/ethermint-address-converter";
+  signEthSecp256k1,
+} from "@hanchon/evmos-signer";
 
-let address = ethToEthermint("0xe2D61e49ff8a9d724CC54d338D8076F878aC6b71");
-// "ethm1uttpuj0l32whynx9f5ecmqrklpu2c6m3973048"
+const privKey = Buffer.from([
+    186, 11, 156, 234, 90, 241, 218, 188, 13, 58, 202, 98, 87, 101, 244,
+    128, 253, 23, 0, 180, 96, 155, 216, 190, 230, 170, 65, 163, 85, 86, 11,
+    163,
+])
+const message = Buffer.from([
+    177, 240, 144, 132, 71, 52, 192, 86, 100, 12, 4, 148, 127, 217, 62, 166,
+    254, 121, 39, 134, 16, 193, 151, 209, 7, 181, 85, 226, 30, 52, 62, 7,
+])
 
-let address = ethermintToEth("ethm1uttpuj0l32whynx9f5ecmqrklpu2c6m3973048");
-// "0xe2D61e49ff8a9d724CC54d338D8076F878aC6b71"
-```
-
-### Decoders
-
-```ts
-import { ETH, ETHERMINT } from "@hanchon/ethermint-address-converter";
-let hex = ETH.decoder("0xe2D61e49ff8a9d724CC54d338D8076F878aC6b71");
-// hex.toString('hex') === "e2d61e49ff8a9d724cc54d338d8076f878ac6b71"
-
-hex = ETHERMINT.decoder("ethm1uttpuj0l32whynx9f5ecmqrklpu2c6m3973048");
-// hex.toString('hex') === "e2d61e49ff8a9d724cc54d338d8076f878ac6b71"
-```
-
-### Encoders
-
-```ts
-import { ETH, ETHERMINT } from "@hanchon/ethermint-address-converter";
-let address = ETH.encoder(
-  Buffer.from("e2d61e49ff8a9d724cc54d338d8076f878ac6b71", "hex")
-);
-// address === "0xe2D61e49ff8a9d724CC54d338D8076F878aC6b71"
-
-address = ETHERMINT.encoder(
-  Buffer.from("e2d61e49ff8a9d724cc54d338d8076f878ac6b71", "hex")
-);
-// address === "ethm1uttpuj0l32whynx9f5ecmqrklpu2c6m3973048"
-```
-
-### EVMOS support
-
-```ts
-import { ethToEvmos, evmosToEth } from "@hanchon/ethermint-address-converter";
-
-let address = ethToEvmos("0x14574a6DFF2Ddf9e07828b4345d3040919AF5652");
-// "evmos1z3t55m0l9h0eupuz3dp5t5cypyv674jj7mz2jw"
-
-let address = evmosToEth("evmos1z3t55m0l9h0eupuz3dp5t5cypyv674jj7mz2jw");
-// "0x14574a6DFF2Ddf9e07828b4345d3040919AF5652"
+const sig = signEthSecp256k1(privKey, message)
 ```
 
 ## Build locally
@@ -75,6 +42,6 @@ yarn test
 yarn build
 ```
 
-## Reference
+## TODOs
 
-- [ENSDOMAINS-AddressEnconder](https://github.com/ensdomains/address-encoder)
+- Add `secp256k1` support.

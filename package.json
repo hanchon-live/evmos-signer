@@ -1,7 +1,7 @@
 {
     "name": "@hanchon/evmos-signer",
     "version": "1.0.0",
-    "description": "Evmos signer for secp256k1 and eth_secp256k1 privatekeys",
+    "description": "Evmos signer for secp256k1 and eth_secp256k1 private keys",
     "license": "MIT",
     "repository": "hanchon-live/evmos-signer",
     "source": "src/signer.ts",

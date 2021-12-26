@@ -22,3 +22,4 @@ injected-provider.bundle.js
 .gitsecret/*
 *.styl
 .github/*
+lib/*
