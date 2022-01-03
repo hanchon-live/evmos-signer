@@ -1,6 +1,6 @@
 # Evmos signer
 
-A typescript signer for the evmos networks, it supports `secp256k1` and `eth_secp256k1` signing.
+A typescript signer for the evmos networks, it supports `eth_secp256k1` signing.
 
 ## Requirements
 
@@ -41,7 +41,3 @@ yarn install
 yarn test
 yarn build
 ```
-
-## TODOs
-
-- Add `secp256k1` support.
